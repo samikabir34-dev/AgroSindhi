@@ -1,0 +1,305 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/App.tsx");import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+
+let prevRefreshReg;
+let prevRefreshSig;
+
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react-swc can't detect preamble. Something is wrong."
+    );
+  }
+
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=03ea749e"; const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"]; const _Fragment = __vite__cjsImport2_react_jsxDevRuntime["Fragment"];
+var _s = $RefreshSig$();
+import { Toaster } from "/src/components/ui/toaster.tsx";
+import { Toaster as Sonner } from "/src/components/ui/sonner.tsx";
+import { TooltipProvider } from "/src/components/ui/tooltip.tsx";
+import { QueryClient, QueryClientProvider } from "/node_modules/.vite/deps/@tanstack_react-query.js?v=03ea749e";
+import { BrowserRouter, Routes, Route } from "/node_modules/.vite/deps/react-router-dom.js?v=03ea749e";
+import Index from "/src/pages/Index.tsx";
+import Map from "/src/pages/Map.tsx";
+import Dashboard from "/src/pages/Dashboard.tsx";
+import Summary from "/src/pages/Summary.tsx";
+import AIAssistant from "/src/pages/AIAssistant.tsx";
+import WaterAnalysis from "/src/pages/WaterAnalysis.tsx";
+import MarketAnalysis from "/src/pages/MarketAnalysis.tsx";
+import WeatherAnalysis from "/src/pages/WeatherAnalysis.tsx";
+import SavedFields from "/src/pages/SavedFields.tsx";
+import AboutInstitution from "/src/pages/AboutInstitution.tsx";
+import AboutSindhAgro from "/src/pages/AboutSindhAgro.tsx";
+import Team from "/src/pages/Team.tsx";
+import NotFound from "/src/pages/NotFound.tsx";
+import LoadingScreen from "/src/components/LoadingScreen.tsx";
+import NetworkError from "/src/components/NetworkError.tsx";
+import { useNetworkStatus } from "/src/hooks/useNetworkStatus.ts";
+import { LanguageProvider } from "/src/contexts/LanguageContext.tsx";
+import GlobalChatbot from "/src/components/chat/GlobalChatbot.tsx";
+const queryClient = new QueryClient();
+const AppContent = ()=>{
+    _s();
+    const isOnline = useNetworkStatus();
+    return /*#__PURE__*/ _jsxDEV(_Fragment, {
+        children: [
+            !isOnline && /*#__PURE__*/ _jsxDEV(NetworkError, {}, void 0, false, {
+                fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                lineNumber: 32,
+                columnNumber: 21
+            }, this),
+            /*#__PURE__*/ _jsxDEV(LoadingScreen, {}, void 0, false, {
+                fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                lineNumber: 33,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV(Routes, {
+                children: [
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/",
+                        element: /*#__PURE__*/ _jsxDEV(Index, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 35,
+                            columnNumber: 34
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 35,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/map",
+                        element: /*#__PURE__*/ _jsxDEV(Map, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 36,
+                            columnNumber: 37
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/dashboard",
+                        element: /*#__PURE__*/ _jsxDEV(Dashboard, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 37,
+                            columnNumber: 43
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 37,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/water",
+                        element: /*#__PURE__*/ _jsxDEV(WaterAnalysis, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 38,
+                            columnNumber: 39
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 38,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/market",
+                        element: /*#__PURE__*/ _jsxDEV(MarketAnalysis, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 39,
+                            columnNumber: 40
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 39,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/weather",
+                        element: /*#__PURE__*/ _jsxDEV(WeatherAnalysis, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 40,
+                            columnNumber: 41
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 40,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/summary",
+                        element: /*#__PURE__*/ _jsxDEV(Summary, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 41,
+                            columnNumber: 41
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 41,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/saved-fields",
+                        element: /*#__PURE__*/ _jsxDEV(SavedFields, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 42,
+                            columnNumber: 46
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 42,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/ai-assistant",
+                        element: /*#__PURE__*/ _jsxDEV(AIAssistant, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 43,
+                            columnNumber: 46
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 43,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/about-institution",
+                        element: /*#__PURE__*/ _jsxDEV(AboutInstitution, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 44,
+                            columnNumber: 51
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 44,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/about-sindhagro",
+                        element: /*#__PURE__*/ _jsxDEV(AboutSindhAgro, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 45,
+                            columnNumber: 49
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 45,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "/team",
+                        element: /*#__PURE__*/ _jsxDEV(Team, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 46,
+                            columnNumber: 38
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 46,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Route, {
+                        path: "*",
+                        element: /*#__PURE__*/ _jsxDEV(NotFound, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 47,
+                            columnNumber: 34
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 47,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                lineNumber: 34,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV(GlobalChatbot, {}, void 0, false, {
+                fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                lineNumber: 49,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true);
+};
+_s(AppContent, "UMa5uL/uM9l3PDW7O/yHtKl8KTE=", false, function() {
+    return [
+        useNetworkStatus
+    ];
+});
+_c = AppContent;
+const App = ()=>/*#__PURE__*/ _jsxDEV(QueryClientProvider, {
+        client: queryClient,
+        children: /*#__PURE__*/ _jsxDEV(LanguageProvider, {
+            children: /*#__PURE__*/ _jsxDEV(TooltipProvider, {
+                children: [
+                    /*#__PURE__*/ _jsxDEV(Toaster, {}, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 58,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(Sonner, {}, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 59,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV(BrowserRouter, {
+                        children: /*#__PURE__*/ _jsxDEV(AppContent, {}, void 0, false, {
+                            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                            lineNumber: 61,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                        lineNumber: 60,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+                lineNumber: 57,
+                columnNumber: 7
+            }, this)
+        }, void 0, false, {
+            fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+            lineNumber: 56,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx",
+        lineNumber: 55,
+        columnNumber: 3
+    }, this);
+_c1 = App;
+export default App;
+var _c, _c1;
+$RefreshReg$(_c, "AppContent");
+$RefreshReg$(_c1, "App");
+
+
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+
+
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/ADMIN/Downloads/Compressed/gentle-nav-cleanse-main/gentle-nav-cleanse-main/src/App.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgVG9hc3RlciB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvdG9hc3RlclwiO1xuaW1wb3J0IHsgVG9hc3RlciBhcyBTb25uZXIgfSBmcm9tIFwiQC9jb21wb25lbnRzL3VpL3Nvbm5lclwiO1xuaW1wb3J0IHsgVG9vbHRpcFByb3ZpZGVyIH0gZnJvbSBcIkAvY29tcG9uZW50cy91aS90b29sdGlwXCI7XG5pbXBvcnQgeyBRdWVyeUNsaWVudCwgUXVlcnlDbGllbnRQcm92aWRlciB9IGZyb20gXCJAdGFuc3RhY2svcmVhY3QtcXVlcnlcIjtcbmltcG9ydCB7IEJyb3dzZXJSb3V0ZXIsIFJvdXRlcywgUm91dGUgfSBmcm9tIFwicmVhY3Qtcm91dGVyLWRvbVwiO1xuaW1wb3J0IEluZGV4IGZyb20gXCIuL3BhZ2VzL0luZGV4XCI7XG5pbXBvcnQgTWFwIGZyb20gXCIuL3BhZ2VzL01hcFwiO1xuaW1wb3J0IERhc2hib2FyZCBmcm9tIFwiLi9wYWdlcy9EYXNoYm9hcmRcIjtcbmltcG9ydCBTdW1tYXJ5IGZyb20gXCIuL3BhZ2VzL1N1bW1hcnlcIjtcbmltcG9ydCBBSUFzc2lzdGFudCBmcm9tIFwiLi9wYWdlcy9BSUFzc2lzdGFudFwiO1xuaW1wb3J0IFdhdGVyQW5hbHlzaXMgZnJvbSBcIi4vcGFnZXMvV2F0ZXJBbmFseXNpc1wiO1xuaW1wb3J0IE1hcmtldEFuYWx5c2lzIGZyb20gXCIuL3BhZ2VzL01hcmtldEFuYWx5c2lzXCI7XG5pbXBvcnQgV2VhdGhlckFuYWx5c2lzIGZyb20gXCIuL3BhZ2VzL1dlYXRoZXJBbmFseXNpc1wiO1xuaW1wb3J0IFNhdmVkRmllbGRzIGZyb20gXCIuL3BhZ2VzL1NhdmVkRmllbGRzXCI7XG5pbXBvcnQgQWJvdXRJbnN0aXR1dGlvbiBmcm9tIFwiLi9wYWdlcy9BYm91dEluc3RpdHV0aW9uXCI7XG5pbXBvcnQgQWJvdXRTaW5kaEFncm8gZnJvbSBcIi4vcGFnZXMvQWJvdXRTaW5kaEFncm9cIjtcbmltcG9ydCBUZWFtIGZyb20gXCIuL3BhZ2VzL1RlYW1cIjtcbmltcG9ydCBOb3RGb3VuZCBmcm9tIFwiLi9wYWdlcy9Ob3RGb3VuZFwiO1xuaW1wb3J0IExvYWRpbmdTY3JlZW4gZnJvbSBcIi4vY29tcG9uZW50cy9Mb2FkaW5nU2NyZWVuXCI7XG5pbXBvcnQgTmV0d29ya0Vycm9yIGZyb20gJy4vY29tcG9uZW50cy9OZXR3b3JrRXJyb3InO1xuaW1wb3J0IHsgdXNlTmV0d29ya1N0YXR1cyB9IGZyb20gJy4vaG9va3MvdXNlTmV0d29ya1N0YXR1cyc7XG5pbXBvcnQgeyBMYW5ndWFnZVByb3ZpZGVyIH0gZnJvbSAnLi9jb250ZXh0cy9MYW5ndWFnZUNvbnRleHQnO1xuaW1wb3J0IEdsb2JhbENoYXRib3QgZnJvbSAnLi9jb21wb25lbnRzL2NoYXQvR2xvYmFsQ2hhdGJvdCc7XG5cbmNvbnN0IHF1ZXJ5Q2xpZW50ID0gbmV3IFF1ZXJ5Q2xpZW50KCk7XG5cbmNvbnN0IEFwcENvbnRlbnQgPSAoKSA9PiB7XG4gIGNvbnN0IGlzT25saW5lID0gdXNlTmV0d29ya1N0YXR1cygpO1xuXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIHshaXNPbmxpbmUgJiYgPE5ldHdvcmtFcnJvciAvPn1cbiAgICAgIDxMb2FkaW5nU2NyZWVuIC8+XG4gICAgICA8Um91dGVzPlxuICAgICAgICA8Um91dGUgcGF0aD1cIi9cIiBlbGVtZW50PXs8SW5kZXggLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL21hcFwiIGVsZW1lbnQ9ezxNYXAgLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL2Rhc2hib2FyZFwiIGVsZW1lbnQ9ezxEYXNoYm9hcmQgLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL3dhdGVyXCIgZWxlbWVudD17PFdhdGVyQW5hbHlzaXMgLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL21hcmtldFwiIGVsZW1lbnQ9ezxNYXJrZXRBbmFseXNpcyAvPn0gLz5cbiAgICAgICAgPFJvdXRlIHBhdGg9XCIvd2VhdGhlclwiIGVsZW1lbnQ9ezxXZWF0aGVyQW5hbHlzaXMgLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL3N1bW1hcnlcIiBlbGVtZW50PXs8U3VtbWFyeSAvPn0gLz5cbiAgICAgICAgPFJvdXRlIHBhdGg9XCIvc2F2ZWQtZmllbGRzXCIgZWxlbWVudD17PFNhdmVkRmllbGRzIC8+fSAvPlxuICAgICAgICA8Um91dGUgcGF0aD1cIi9haS1hc3Npc3RhbnRcIiBlbGVtZW50PXs8QUlBc3Npc3RhbnQgLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL2Fib3V0LWluc3RpdHV0aW9uXCIgZWxlbWVudD17PEFib3V0SW5zdGl0dXRpb24gLz59IC8+XG4gICAgICAgIDxSb3V0ZSBwYXRoPVwiL2Fib3V0LXNpbmRoYWdyb1wiIGVsZW1lbnQ9ezxBYm91dFNpbmRoQWdybyAvPn0gLz5cbiAgICAgICAgPFJvdXRlIHBhdGg9XCIvdGVhbVwiIGVsZW1lbnQ9ezxUZWFtIC8+fSAvPlxuICAgICAgICA8Um91dGUgcGF0aD1cIipcIiBlbGVtZW50PXs8Tm90Rm91bmQgLz59IC8+XG4gICAgICA8L1JvdXRlcz5cbiAgICAgIDxHbG9iYWxDaGF0Ym90IC8+XG4gICAgPC8+XG4gICk7XG59O1xuXG5jb25zdCBBcHAgPSAoKSA9PiAoXG4gIDxRdWVyeUNsaWVudFByb3ZpZGVyIGNsaWVudD17cXVlcnlDbGllbnR9PlxuICAgIDxMYW5ndWFnZVByb3ZpZGVyPlxuICAgICAgPFRvb2x0aXBQcm92aWRlcj5cbiAgICAgICAgPFRvYXN0ZXIgLz5cbiAgICAgICAgPFNvbm5lciAvPlxuICAgICAgICA8QnJvd3NlclJvdXRlcj5cbiAgICAgICAgICA8QXBwQ29udGVudCAvPlxuICAgICAgICA8L0Jyb3dzZXJSb3V0ZXI+XG4gICAgICA8L1Rvb2x0aXBQcm92aWRlcj5cbiAgICA8L0xhbmd1YWdlUHJvdmlkZXI+XG4gIDwvUXVlcnlDbGllbnRQcm92aWRlcj5cbik7XG5cbmV4cG9ydCBkZWZhdWx0IEFwcDtcbiJdLCJuYW1lcyI6WyJUb2FzdGVyIiwiU29ubmVyIiwiVG9vbHRpcFByb3ZpZGVyIiwiUXVlcnlDbGllbnQiLCJRdWVyeUNsaWVudFByb3ZpZGVyIiwiQnJvd3NlclJvdXRlciIsIlJvdXRlcyIsIlJvdXRlIiwiSW5kZXgiLCJNYXAiLCJEYXNoYm9hcmQiLCJTdW1tYXJ5IiwiQUlBc3Npc3RhbnQiLCJXYXRlckFuYWx5c2lzIiwiTWFya2V0QW5hbHlzaXMiLCJXZWF0aGVyQW5hbHlzaXMiLCJTYXZlZEZpZWxkcyIsIkFib3V0SW5zdGl0dXRpb24iLCJBYm91dFNpbmRoQWdybyIsIlRlYW0iLCJOb3RGb3VuZCIsIkxvYWRpbmdTY3JlZW4iLCJOZXR3b3JrRXJyb3IiLCJ1c2VOZXR3b3JrU3RhdHVzIiwiTGFuZ3VhZ2VQcm92aWRlciIsIkdsb2JhbENoYXRib3QiLCJxdWVyeUNsaWVudCIsIkFwcENvbnRlbnQiLCJpc09ubGluZSIsInBhdGgiLCJlbGVtZW50IiwiQXBwIiwiY2xpZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxTQUFTQSxPQUFPLFFBQVEsMEJBQTBCO0FBQ2xELFNBQVNBLFdBQVdDLE1BQU0sUUFBUSx5QkFBeUI7QUFDM0QsU0FBU0MsZUFBZSxRQUFRLDBCQUEwQjtBQUMxRCxTQUFTQyxXQUFXLEVBQUVDLG1CQUFtQixRQUFRLHdCQUF3QjtBQUN6RSxTQUFTQyxhQUFhLEVBQUVDLE1BQU0sRUFBRUMsS0FBSyxRQUFRLG1CQUFtQjtBQUNoRSxPQUFPQyxXQUFXLGdCQUFnQjtBQUNsQyxPQUFPQyxTQUFTLGNBQWM7QUFDOUIsT0FBT0MsZUFBZSxvQkFBb0I7QUFDMUMsT0FBT0MsYUFBYSxrQkFBa0I7QUFDdEMsT0FBT0MsaUJBQWlCLHNCQUFzQjtBQUM5QyxPQUFPQyxtQkFBbUIsd0JBQXdCO0FBQ2xELE9BQU9DLG9CQUFvQix5QkFBeUI7QUFDcEQsT0FBT0MscUJBQXFCLDBCQUEwQjtBQUN0RCxPQUFPQyxpQkFBaUIsc0JBQXNCO0FBQzlDLE9BQU9DLHNCQUFzQiwyQkFBMkI7QUFDeEQsT0FBT0Msb0JBQW9CLHlCQUF5QjtBQUNwRCxPQUFPQyxVQUFVLGVBQWU7QUFDaEMsT0FBT0MsY0FBYyxtQkFBbUI7QUFDeEMsT0FBT0MsbUJBQW1CLDZCQUE2QjtBQUN2RCxPQUFPQyxrQkFBa0IsNEJBQTRCO0FBQ3JELFNBQVNDLGdCQUFnQixRQUFRLDJCQUEyQjtBQUM1RCxTQUFTQyxnQkFBZ0IsUUFBUSw2QkFBNkI7QUFDOUQsT0FBT0MsbUJBQW1CLGtDQUFrQztBQUU1RCxNQUFNQyxjQUFjLElBQUl2QjtBQUV4QixNQUFNd0IsYUFBYTs7SUFDakIsTUFBTUMsV0FBV0w7SUFFakIscUJBQ0U7O1lBQ0csQ0FBQ0ssMEJBQVksUUFBQ047Ozs7OzBCQUNmLFFBQUNEOzs7OzswQkFDRCxRQUFDZjs7a0NBQ0MsUUFBQ0M7d0JBQU1zQixNQUFLO3dCQUFJQyx1QkFBUyxRQUFDdEI7Ozs7Ozs7Ozs7a0NBQzFCLFFBQUNEO3dCQUFNc0IsTUFBSzt3QkFBT0MsdUJBQVMsUUFBQ3JCOzs7Ozs7Ozs7O2tDQUM3QixRQUFDRjt3QkFBTXNCLE1BQUs7d0JBQWFDLHVCQUFTLFFBQUNwQjs7Ozs7Ozs7OztrQ0FDbkMsUUFBQ0g7d0JBQU1zQixNQUFLO3dCQUFTQyx1QkFBUyxRQUFDakI7Ozs7Ozs7Ozs7a0NBQy9CLFFBQUNOO3dCQUFNc0IsTUFBSzt3QkFBVUMsdUJBQVMsUUFBQ2hCOzs7Ozs7Ozs7O2tDQUNoQyxRQUFDUDt3QkFBTXNCLE1BQUs7d0JBQVdDLHVCQUFTLFFBQUNmOzs7Ozs7Ozs7O2tDQUNqQyxRQUFDUjt3QkFBTXNCLE1BQUs7d0JBQVdDLHVCQUFTLFFBQUNuQjs7Ozs7Ozs7OztrQ0FDakMsUUFBQ0o7d0JBQU1zQixNQUFLO3dCQUFnQkMsdUJBQVMsUUFBQ2Q7Ozs7Ozs7Ozs7a0NBQ3RDLFFBQUNUO3dCQUFNc0IsTUFBSzt3QkFBZ0JDLHVCQUFTLFFBQUNsQjs7Ozs7Ozs7OztrQ0FDdEMsUUFBQ0w7d0JBQU1zQixNQUFLO3dCQUFxQkMsdUJBQVMsUUFBQ2I7Ozs7Ozs7Ozs7a0NBQzNDLFFBQUNWO3dCQUFNc0IsTUFBSzt3QkFBbUJDLHVCQUFTLFFBQUNaOzs7Ozs7Ozs7O2tDQUN6QyxRQUFDWDt3QkFBTXNCLE1BQUs7d0JBQVFDLHVCQUFTLFFBQUNYOzs7Ozs7Ozs7O2tDQUM5QixRQUFDWjt3QkFBTXNCLE1BQUs7d0JBQUlDLHVCQUFTLFFBQUNWOzs7Ozs7Ozs7Ozs7Ozs7OzBCQUU1QixRQUFDSzs7Ozs7OztBQUdQO0dBekJNRTs7UUFDYUo7OztLQURiSTtBQTJCTixNQUFNSSxNQUFNLGtCQUNWLFFBQUMzQjtRQUFvQjRCLFFBQVFOO2tCQUMzQixjQUFBLFFBQUNGO3NCQUNDLGNBQUEsUUFBQ3RCOztrQ0FDQyxRQUFDRjs7Ozs7a0NBQ0QsUUFBQ0M7Ozs7O2tDQUNELFFBQUNJO2tDQUNDLGNBQUEsUUFBQ3NCOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztNQVBMSTtBQWNOLGVBQWVBLElBQUkifQ==

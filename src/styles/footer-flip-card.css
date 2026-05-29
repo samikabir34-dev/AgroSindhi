@@ -1,0 +1,162 @@
+/* Footer Flip Card Component Styles */
+.footer-flip-wrapper {
+    --input-focus: #3B82F6;
+    --font-color: #fefefe;
+    --font-color-sub: #a3a3a3;
+    --bg-color: #000;
+    --bg-color-alt: #1a1a1a;
+    --main-color: #3B82F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* card */
+.footer-flip-card__inner {
+    width: 320px;
+    height: 380px;
+    position: relative;
+    background-color: transparent;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.footer-flip-card__front,
+.footer-flip-card__back {
+    padding: 25px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: var(--bg-color);
+    gap: 15px;
+    border-radius: 12px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+}
+
+.footer-flip-card__back {
+    transform: rotateY(180deg);
+}
+
+.footer-flip-card__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.footer-title {
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.footer-flip-card__input {
+    width: 100%;
+    max-width: 260px;
+    height: 44px;
+    border-radius: 8px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 3px 3px var(--main-color);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--font-color);
+    padding: 8px 14px;
+    outline: none;
+}
+
+.footer-flip-card__textarea {
+    width: 100%;
+    max-width: 260px;
+    height: 80px;
+    border-radius: 8px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 3px 3px var(--main-color);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--font-color);
+    padding: 10px 14px;
+    outline: none;
+    resize: none;
+}
+
+.footer-flip-card__input::placeholder,
+.footer-flip-card__textarea::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+.footer-flip-card__input:focus,
+.footer-flip-card__textarea:focus {
+    border-color: #60A5FA;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+}
+
+.footer-flip-card__btn {
+    width: 120px;
+    height: 44px;
+    border-radius: 8px;
+    border: 2px solid var(--main-color);
+    background-color: var(--main-color);
+    box-shadow: 3px 3px #000;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.footer-flip-card__btn:hover {
+    background-color: #60A5FA;
+    transform: translateY(-3px);
+    box-shadow: 4px 4px #000;
+}
+
+.footer-flip-card__btn:active {
+    box-shadow: 0px 0px #000;
+    transform: translate(3px, 3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-flip-card__inner {
+        width: 280px;
+        height: 340px;
+    }
+
+    .footer-flip-card__input,
+    .footer-flip-card__textarea {
+        max-width: 230px;
+        height: 40px;
+    }
+
+    .footer-flip-card__textarea {
+        height: 70px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+    }
+
+    .footer-flip-card__btn {
+        width: 100px;
+        height: 38px;
+        font-size: 14px;
+    }
+}

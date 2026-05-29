@@ -1,0 +1,557 @@
+@import './styles/animations.css';
+
+@font-face {
+  font-family: 'Ambile';
+  src: url('/fonts/AMBILE.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN SYSTEM: Modern Glassmorphic Dark Tech
+   Inspired by calender.sindh.ai
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* ── sindhilanguage.org exact color tokens ── */
+    --sl-bg:    #07172f;
+    --sl-bg2:   #0b2450;
+    --sl-text:  #eef7ff;
+    --sl-muted: #b9cbe0;
+    --sl-card:  rgba(255,255,255,0.09);
+    --sl-card2: rgba(255,255,255,0.14);
+    --sl-border: rgba(255,255,255,0.18);
+    --sl-shadow: 0 28px 90px rgba(0,0,0,0.42);
+    --sl-blur:   blur(22px);
+
+    /* Accent palette */
+    --accent-cyan:    #55e6ff;
+    --accent-purple:  #8d7cff;
+    --accent-gold:    #ffd166;
+    --accent-emerald: #34d399;
+
+    /* Tailwind / shadcn tokens mapped to sindhilanguage.org palette */
+    --background: 215 28% 7%;
+    --foreground: 210 40% 96%;
+    --card: 213 50% 10%;
+    --card-foreground: 210 40% 96%;
+    --popover: 213 50% 10%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 189 100% 66%;    /* #55e6ff cyan */
+    --primary-foreground: 215 28% 7%;
+    --secondary: 255 100% 74%;  /* #8d7cff purple */
+    --secondary-foreground: 210 40% 96%;
+    --muted: 215 28% 13%;
+    --muted-foreground: 210 20% 72%;
+    --accent: 189 100% 66%;
+    --accent-foreground: 215 28% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100% / 0.18;
+    --input:  0 0% 100% / 0.12;
+    --ring: 189 100% 66%;
+    --radius: 1rem;
+
+    /* Chart colors — keep existing data-viz palette */
+    --chart-1: 189 100% 66%;
+    --chart-2: 142 76% 36%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 43 96% 56%;
+    --chart-5: 255 100% 74%;
+    /* Extended palette for richer data-viz */
+    --chart-6: 27 90% 55%;   /* warm orange */
+    --chart-7: 340 85% 58%;  /* pink/magenta */
+    --chart-8: 210 90% 60%;  /* bright sky */
+    --chart-9: 160 65% 45%;  /* teal */
+    --chart-10: 48 90% 50%;  /* amber */
+    --chart-11: 260 70% 55%; /* indigo */
+    --chart-12: 25 60% 40%;  /* dark ochre */
+
+    /* Data viz semantics */
+    --success: 142 76% 36%;
+    --warning: 43 96% 56%;
+    --info: 199 89% 48%;
+    --vegetation-excellent: 142 76% 36%;
+    --vegetation-good: 142 71% 45%;
+    --vegetation-moderate: 43 96% 56%;
+    --vegetation-poor: 0 84% 60%;
+    --water: 199 89% 48%;
+    --chlorophyll: 142 76% 36%;
+
+    /* Glass tokens */
+    --glass-bg: rgba(11,20,48,0.80);
+    --glass-border: rgba(255,255,255,0.18);
+    --glass-blur: 22px;
+    --glass-shadow: 0 28px 90px rgba(0,0,0,0.42);
+    --glass-shadow-hover: 0 32px 100px rgba(0,0,0,0.52);
+
+    /* Gradient shorthands */
+    --gradient-brand: linear-gradient(90deg, #55e6ff, #ffd166, #8d7cff);
+    --gradient-cta: linear-gradient(135deg, #55e6ff, #8d7cff);
+    --gradient-glass-section: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.09));
+
+    /* Button glow */
+    --btn-glow: 0 0 15px rgba(85,230,255,0.35);
+    --btn-glow-hover: 0 0 28px rgba(85,230,255,0.55);
+    --btn-glow-cyan: 0 0 20px rgba(85,230,255,0.40);
+    --btn-glow-cyan-hover: 0 8px 32px rgba(85,230,255,0.35);
+
+    /* Font Variables */
+    --font-heading: 'Ambile', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+    --font-body:    'Ambile', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+    --font-display: 'Ambile', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+    --font-mono:    'Ambile', monospace;
+    --font-arabic:  'Ambile', 'Noto Sans Arabic', Tahoma, sans-serif;
+
+    /* Sidebar */
+    --sidebar-background: 215 28% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 189 100% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 189 100% 66%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100% / 0.06;
+    --sidebar-ring: 189 100% 66%;
+  }
+
+  /* Dark is the default — no .dark overrides needed */
+  .dark {
+    /* Same as root — already dark */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply text-foreground;
+    font-family: var(--font-body);
+    /* ── sindhilanguage.org exact background ── */
+    background:
+      radial-gradient(circle at 12% 14%,
+        color-mix(in srgb, #55e6ff 30%, transparent),
+        transparent 30%),
+      radial-gradient(circle at 88% 8%,
+        color-mix(in srgb, #ffd166 22%, transparent),
+        transparent 28%),
+      linear-gradient(135deg, #07172f, #0b2450);
+    background-attachment: fixed;
+    color: #eef7ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+    -webkit-tap-highlight-color: transparent;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* ── sindhilanguage.org 56px grid overlay that fades downward ── */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(color-mix(in srgb, #eef7ff 8%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, #eef7ff 8%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(#000, transparent 85%);
+    -webkit-mask-image: linear-gradient(#000, transparent 85%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Heading typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #FFFFFF;
+  }
+
+  h1 {
+    letter-spacing: -0.03em;
+    font-weight: 800;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: 'liga' 1, 'calt' 1;
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .font-label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  input, button, select, textarea {
+    font-family: var(--font-body);
+    letter-spacing: -0.01em;
+  }
+
+  /* Sindhi / Arabic RTL typography */
+  body.lang-sd h1, body.lang-sd h2, body.lang-sd h3,
+  body.lang-sd h4, body.lang-sd h5, body.lang-sd h6,
+  body.lang-ur h1, body.lang-ur h2, body.lang-ur h3,
+  body.lang-ur h4, body.lang-ur h5, body.lang-ur h6 {
+    font-family: var(--font-arabic);
+    line-height: 1.6;
+  }
+
+  body.lang-sd p, body.lang-sd span, body.lang-sd div,
+  body.lang-ur p, body.lang-ur span, body.lang-ur div {
+    font-family: var(--font-arabic);
+    line-height: 1.6;
+  }
+
+  /* English typography enhancements */
+  body.lang-en h1, body.lang-en h2, body.lang-en h3,
+  body.lang-en h4, body.lang-en h5, body.lang-en h6 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  body.lang-en p, body.lang-en span, body.lang-en div {
+    font-family: var(--font-body);
+    letter-spacing: -0.015em;
+    line-height: 1.65;
+  }
+
+  /* Custom scrollbar — dark glass */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* ============================================================
+   GLASSMORPHIC UTILITY CLASSES
+   ============================================================ */
+@layer components {
+  /* ── Glass card (small, 16px radius) ── */
+  .glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.09));
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 26px;
+    box-shadow: 0 28px 90px rgba(0,0,0,0.42);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 32px 100px rgba(0,0,0,0.52), 0 0 0 1px rgba(85,230,255,0.15);
+    transform: translateY(-3px);
+    border-color: rgba(85,230,255,0.25);
+  }
+
+  /* ── Glass section — sindhilanguage.org hero panel (36px radius) ── */
+  .glass-section {
+    background: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.09));
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 36px;
+    box-shadow: 0 28px 90px rgba(0,0,0,0.42);
+    padding: clamp(22px, 4vw, 44px);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  .glass-section:hover {
+    box-shadow: 0 32px 100px rgba(0,0,0,0.52), 0 0 0 1px rgba(255,255,255,0.22);
+  }
+
+  /* ── Inner card within glass-section (26px radius) ── */
+  .glass-inner-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 26px;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glass-inner-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.09);
+    border-color: color-mix(in srgb, #55e6ff 40%, rgba(255,255,255,0.18));
+    box-shadow: 0 18px 48px rgba(0,0,0,0.28);
+  }
+
+  /* ── Pill nav button — sindhilanguage.org style ── */
+  .glass-pill-nav {
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.09);
+    border-radius: 999px;
+    padding: 10px 15px;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .glass-pill-nav:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .glass-pill-nav.active {
+    background: linear-gradient(135deg, #55e6ff22, #8d7cff22);
+    border-color: rgba(85,230,255,0.35);
+    color: #55e6ff;
+  }
+
+  /* ── CTA button — brand gradient ── */
+  .btn-brand {
+    background: var(--gradient-cta);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: var(--btn-glow-cyan);
+    font-weight: 700;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btn-brand:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--btn-glow-cyan-hover);
+  }
+
+  /* ── Ghost CTA button ── */
+  .btn-ghost-glass {
+    background: rgba(255,255,255,0.09);
+    color: #fff;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+    font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .btn-ghost-glass:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.14);
+  }
+
+  /* ── Legacy ── */
+  .btn-primary-glow {
+    background: hsl(217, 91%, 60%);
+    color: #FFFFFF;
+    border-radius: 0.75rem;
+    box-shadow: var(--btn-glow);
+  }
+
+  .btn-primary-glow:hover {
+    box-shadow: var(--btn-glow-hover);
+    background: hsl(217, 91%, 55%);
+  }
+
+  /* ── Brand name gradient (consistent across site) ── */
+  .brand-name {
+    background-image: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .text-glass-muted {
+    color: #A1A1AA;
+  }
+
+  /* ── Eyebrow badge — pill label ── */
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.09);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Accent divider bar ── */
+  .accent-bar {
+    height: 3px;
+    border-radius: 999px;
+    background: var(--gradient-cta);
+    width: 48px;
+  }
+
+  /* ── Animated dot indicator ── */
+  .dot-live {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(85,230,255,0.8);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .dot-live-green {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-emerald);
+    box-shadow: 0 0 12px rgba(52,211,153,0.8);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+/* ============================================================
+   MAP CONTROLS — Dark glass styling
+   ============================================================ */
+.mapboxgl-ctrl-group,
+.maplibregl-ctrl-group {
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(21, 32, 43, 0.95) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 8px 32px -8px rgba(59, 130, 246, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 6px !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 6px !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+.mapboxgl-ctrl-group button,
+.maplibregl-ctrl-group button {
+  background: transparent !important;
+  border: none !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  transition: all 0.3s ease-in-out !important;
+  cursor: pointer !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: auto !important;
+  z-index: 1 !important;
+}
+
+.mapboxgl-ctrl-group button:hover,
+.maplibregl-ctrl-group button:hover {
+  background: rgba(59, 130, 246, 0.2) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5) !important;
+}
+
+.mapbox-gl-draw_ctrl-draw-btn,
+.mapbox-gl-draw_trash {
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.7)) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.mapbox-gl-draw_ctrl-draw-btn:hover,
+.mapbox-gl-draw_trash:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8)) !important;
+}
+
+.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,
+.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon,
+.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon {
+  filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5)) !important;
+}
+
+.maplibregl-ctrl-bottom-right {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-end !important;
+  gap: 10px !important;
+  pointer-events: none !important;
+  margin-bottom: 20px !important;
+  margin-right: 20px !important;
+}
+
+.maplibregl-ctrl-bottom-right .maplibregl-ctrl,
+.maplibregl-ctrl-bottom-right .mapboxgl-ctrl {
+  margin: 0 !important;
+  pointer-events: auto !important;
+}
+
+.mapboxgl-ctrl-group button + button,
+.maplibregl-ctrl-group button + button {
+  border-top: none !important;
+}
+
+/* MapboxDraw Canvas fixes */
+.mapboxgl-canvas,
+.maplibregl-canvas {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.mapboxgl-map .mapboxgl-canvas-container,
+.maplibregl-map .maplibregl-canvas-container {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
